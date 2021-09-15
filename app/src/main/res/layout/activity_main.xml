@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/cityTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                style="@style/MaterialSearchViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cityName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Current Weather"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/todayMaterialCard"
+                        style="@style/Widget.MaterialComponents.CardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/material_blue"
+                        app:cardCornerRadius="30dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="5dp">
+
+                            <TextView
+                                android:id="@+id/temp_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layoutDirection="ltr"
+                                android:textColor="@color/white"
+                                android:textSize="45sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/description_text_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:orientation="horizontal"
+                                android:textColor="@color/white"
+                                android:textSize="14sp">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:padding="10dp">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Humidity"
+                                            android:textColor="@color/white"
+                                            android:textStyle="bold" />
+
+                                        <View
+                                            android:layout_width="5dp"
+                                            android:layout_height="0dp" />
+
+                                        <TextView
+                                            android:id="@+id/humidity_text_view"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:padding="10dp">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Wind"
+                                            android:textColor="@color/white"
+                                            android:textStyle="bold" />
+
+                                        <View
+                                            android:layout_width="5dp"
+                                            android:layout_height="0dp" />
+
+                                        <TextView
+                                            android:id="@+id/wind_text_view"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/animation_view"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="true" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="15dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Next 6 Days/Hourly"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:clipToPadding="false"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </LinearLayout>
+</FrameLayout>
